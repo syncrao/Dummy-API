@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(246, 238, 255);
+  font-size: 1.0rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* nav styles */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1px;
+  background-color: rgb(201, 53, 194);
+}
+
+.logo {
+  font-size: 1.0rem;
+  color: rgb(255, 255, 255);
+  padding-left: 10px;
+}
+
+.hamburger {
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 20px;
+  height: 4px;
+  margin-bottom: 4px;
+  background-color: rgb(246, 231, 248);
+}
+
+.nav__link {
+  position: fixed;
+  width: 94%;
+  top: 5rem;
+  left: 18px;
+  background-color: rgb(92, 5, 180); /* Updated background color */
+}
+
+.nav__link a {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.nav__link a:hover {
+  background-color: lightcoral;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .nav__link {
+    display: block;
+    position: static;
+    width: auto;
+    margin-right: 20px;
+    background: none;
+  }
+
+  .nav__link a {
+    display: inline-block;
+    padding: 15px 20px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+.delete-button {
+        background-color: #ff0000;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+  </style>
+  {% block style %} {% endblock %}
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="/" class="logo">BIKA Chat</a>
+
+      <div class="hamburger">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+
+      <div class="nav__link hide">
+        <a href="#">home</a>
+        <a href="#">about</a>
+        <a href="#">contact</a>
+        <a href="#">blog</a>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+const hamburger = document.querySelector('.hamburger');
+const navLink = document.querySelector('.nav__link');
+
+hamburger.addEventListener('click', () => {
+  navLink.classList.toggle('hide');
+});
+
+  </script>
+{% block body %} {% endblock %}
+
+
+</body>
+</html>

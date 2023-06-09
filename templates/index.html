@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+
+<style>
+    .post-container {
+        max-width: 100%;
+        margin: 10px auto;
+        background-color: #c1f0fd;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-container h2 {
+        font-size: 1.2rem;
+        margin-bottom: auto;
+    }
+
+    .post-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post-form textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        resize: vertical;
+        min-height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .post-form input[type="submit"] {
+        background-color: #b700ab;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        padding: 10px;
+
+    }
+
+    .left {
+        background-color: rgb(173, 220, 235);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="post-container">
+    <h2>Create a Post</h2>
+    <form action="/" method="POST" class="post-form">
+        <input type="text" name="name" placeholder="What is your name" required>
+        <br>
+        <textarea type="text" name="username" placeholder="What's on your mind?" required></textarea>
+        <input type="submit" value="Post">
+    </form>
+</div>
+
+<div class="container">
+
+    {% for user in usernames[::-1] %}
+    <div class="left">
+        <h3 style="color: #fafafa;">{{ user.name }}</h3>
+        <br>
+        <p>{{ user.username }}</p>
+        <br>
+        <form action="/delete/{{ user.id }}" method="POST">
+            <button class="delete-button" type="submit">Delete</button>
+        </form>
+    </div>
+    {% endfor %}
+
+</div>
+
+
+
+{% endblock %}
