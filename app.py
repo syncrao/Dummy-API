@@ -23,16 +23,17 @@ def index():
         user = User(request.form['username'], request.form['name'])
         db.session.add(user)
         db.session.commit()
+        return redirect('/') 
     
     usernames = User.query.all()
     return render_template('index.html', usernames=usernames)
 
 @app.route('/delete/<int:user_id>', methods=['POST'])
 def delete_user(user_id):
-    user = User.query.get(user_id)  # Retrieve the user by ID
+    user = User.query.get(user_id)
     if user:
-        db.session.delete(user)  # Delete the user from the session
-        db.session.commit()  # Commit the changes
+        db.session.delete(user)
+        db.session.commit() 
     return redirect('/') 
 
 if __name__ == '__main__':
