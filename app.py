@@ -5,7 +5,7 @@ import psycopg2
 import pytz
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = ('postgresql://bikachat_user:uyOmN0eAqEi0CzVWsXuZs6nowreh4AsU@dpg-ci7810p8g3n3vm5u59gg-a.ohio-postgres.render.com/bikachat')
+app.config['SQLALCHEMY_DATABASE_URI'] = ('Database_Url')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'sssrrrkkk'
 db = SQLAlchemy(app)
