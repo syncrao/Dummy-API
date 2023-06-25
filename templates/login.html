@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<div class="login-form">
+    <h2>Login</h2>
+    <form method="POST" action="/login">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        {% for message in get_flashed_messages() %}
+        <p style="background-color: rgb(242, 69, 69); text-align: center; padding: 3px 3px;">{{ message }}</p>
+        {% endfor %}
+        <input type="submit" value="Login">
+    </form>
+
+    <hr>
+
+
+    <p>if you don't have an account? <a href="/register">Register</a></p>
+    <button onclick="window.location.href='/register'">Register</button>
+</div>
+</div>
+
+
+{% endblock %}
