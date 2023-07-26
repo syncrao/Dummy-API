@@ -51,9 +51,9 @@ class Note(db.Model):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     with app.app_context():
-        db.create_all()
+        # db.create_all()
 
-        # db.drop_all()
+        db.drop_all()
     if 'user_id' not in session:
         return redirect('/login')
 
