@@ -1,2 +1,1 @@
-# bikachat
-a chat website like facebook
+a chating webside 
