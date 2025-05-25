@@ -1,0 +1,29 @@
+.
+├── db.sqlite3
+├── env
+│   ├── bin
+│   ├── include
+│   ├── lib
+│   ├── lib64 -> lib
+│   └── pyvenv.cfg
+├── LICENSE
+├── manage.py
+├── MySite
+│   ├── asgi.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── README.md
+├── School_API
+│   ├── admin.py
+│   ├── apps.py
+│   ├── __init__.py
+│   ├── migrations
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+└── tree.txt
+
+10 directories, 17 files

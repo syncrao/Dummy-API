@@ -1,6 +1,0 @@
-Flask
-Flask-SQLAlchemy==3.0.3
-SQLAlchemy==2.0.15
-gunicorn
-psycopg2
-pytz 
