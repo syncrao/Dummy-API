@@ -16,14 +16,18 @@
 │   ├── urls.py
 │   └── wsgi.py
 ├── README.md
+├── requirements.txt
 ├── School_API
 │   ├── admin.py
 │   ├── apps.py
 │   ├── __init__.py
 │   ├── migrations
 │   ├── models.py
+│   ├── __pycache__
+│   ├── serializers.py
 │   ├── tests.py
+│   ├── urls.py
 │   └── views.py
 └── tree.txt
 
-10 directories, 17 files
+11 directories, 20 files
