@@ -1,5 +1,5 @@
 # Dummy-API
-
+https://ecea-2401-4900-7d87-36c2-f9b5-fe5d-ebbd-e378.ngrok-free.app/api/school/
 ## Setup Instructions
 
 ```bash
