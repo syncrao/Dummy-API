@@ -7,6 +7,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'MySite.settings')
 django.setup()
 
 try:
+    call_command('makemigrations', interactive=False)
     call_command('migrate', interactive=False)
 except Exception as e:
     print(f"Migration error: {e}")
