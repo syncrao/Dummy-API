@@ -1,4 +1,7 @@
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+import dj_database_url
 from corsheaders.defaults import default_headers
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -58,12 +61,18 @@ WSGI_APPLICATION = 'MySite.wsgi.application'
 
 
 
+load_dotenv()
 DATABASES = {
-    'default': {
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE')
+    ),
+    'old': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
 
 
 
