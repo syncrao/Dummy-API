@@ -80,3 +80,22 @@ class AnnouncementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Announcement
         fields = '__all__'
+
+
+class GadgetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Gadget
+        fields = '__all__'
+
+
+class ArtistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Artist
+        fields = '__all__'
+
+
+class AthleteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Athlete
+        fields = '__all__'
+

@@ -230,3 +230,30 @@ class Announcement(models.Model):
     def __str__(self):
         return self.title
 
+class Gadget(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=255)
+    price = models.IntegerField()
+
+
+    def __str__(self):
+        return self.name
+    
+class Artist(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=255)
+    age = models.IntegerField()
+
+
+    def __str__(self):
+        return self.name
+    
+class Athlete(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=255)
+    madels = models.IntegerField()
+
+
+    def __str__(self):
+        return self.name
+    

@@ -65,3 +65,15 @@ class ExamResultViewSet(viewsets.ModelViewSet):
 class AnnouncementViewSet(viewsets.ModelViewSet):
     queryset = Announcement.objects.all()
     serializer_class = AnnouncementSerializer
+
+class GadgetViewSet(viewsets.ModelViewSet):
+    queryset = Gadget.objects.all()
+    serializer_class = GadgetSerializer
+
+class ArtistViewSet(viewsets.ModelViewSet):
+    queryset = Artist.objects.all()
+    serializer_class = ArtistSerializer
+
+class AthleteViewSet(viewsets.ModelViewSet):
+    queryset = Athlete.objects.all()
+    serializer_class = AthleteSerializer
