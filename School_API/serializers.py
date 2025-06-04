@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.contrib.auth.hashers import make_password
 from .models import *
 
 class UserSerializer(serializers.ModelSerializer):
@@ -103,4 +104,6 @@ class AthleteSerializer(serializers.ModelSerializer):
 class NewuserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Newuser
-        fields = '__all__'
+        fields = '__all__' 
+
+

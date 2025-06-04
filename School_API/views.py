@@ -1,7 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.contrib.auth.hashers import check_password
+from django.contrib.auth import authenticate
 from .models import *
 from .serializers import *
 
@@ -85,29 +85,24 @@ class NewuserViewSet(viewsets.ModelViewSet):
     queryset = Newuser.objects.all()
     serializer_class = NewuserSerializer
 
-# views.py
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from django.contrib.auth.hashers import check_password
-from .models import Newuser
 
 class NewuserLoginView(APIView):
     def post(self, request):
-        username = request.data.get("username")
-        password = request.data.get("password")
+        username = request.data.get('username')
+        password = request.data.get('password')
+
+        if not username or not password:
+            return Response({'error': 'Username and password are required'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
             user = Newuser.objects.get(username=username)
-            if check_password(password, user.password):
+            if user.password == password:
                 return Response({
-                    "message": "Login successful",
-                    "user_id": str(user.id),
-                    "username": user.username
-                })
+                    'message': 'Login successful',
+                    'username': user.username,
+                    'id': str(user.id)  
+                }, status=status.HTTP_200_OK)
             else:
-                return Response({"error": "Invalid password"}, status=status.HTTP_401_UNAUTHORIZED)
+                return Response({'error': 'Invalid username or password'}, status=status.HTTP_401_UNAUTHORIZED)
         except Newuser.DoesNotExist:
-            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
-
+            return Response({'error': 'user does not exist'}, status=status.HTTP_401_UNAUTHORIZED)
