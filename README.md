@@ -19,16 +19,34 @@ A simple API for school-related user login and validation.
 **POST**
 [`http://raoapi.vercel.app/api/school/login/`](http://raoapi.vercel.app/api/school/login/)
 
-#### 📥 Request Body (JSON)
+**Request Body:**
 
 ```json
 {
-  "username": "your_username",
-  "password": "your_password"
+  "username": "syncrao",
+  "password": "yourpassword"
 }
 ```
 
----
+**Response (Success - 200 OK):**
+
+```json
+{
+  "message": "Login successful",
+  "username": "rao",
+  "id": "37ddb35c-7c21-4fb9-9f7b-27201179f0cc"
+}
+```
+
+**Response (Failure - 401 Unauthorized):**
+
+```json
+{
+  "error": "Invalid username or password"
+}
+```
+
+
 
 ## ⚙️ Setup Instructions
 
