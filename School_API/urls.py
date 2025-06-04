@@ -19,7 +19,8 @@ from .views import (
     GadgetViewSet,
     ArtistViewSet,
     AthleteViewSet,
-    NewuserViewSet
+    NewuserViewSet,
+    NewuserLoginView
 )
 
 router = routers.DefaultRouter()
@@ -45,4 +46,5 @@ router.register(r'newuser', NewuserViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),  
+    path('login/', NewuserLoginView.as_view(), name='newuser-login')
 ]

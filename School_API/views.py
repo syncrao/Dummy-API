@@ -1,4 +1,7 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, status
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from django.contrib.auth.hashers import check_password
 from .models import *
 from .serializers import *
 
@@ -81,3 +84,30 @@ class AthleteViewSet(viewsets.ModelViewSet):
 class NewuserViewSet(viewsets.ModelViewSet):
     queryset = Newuser.objects.all()
     serializer_class = NewuserSerializer
+
+# views.py
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from django.contrib.auth.hashers import check_password
+from .models import Newuser
+
+class NewuserLoginView(APIView):
+    def post(self, request):
+        username = request.data.get("username")
+        password = request.data.get("password")
+
+        try:
+            user = Newuser.objects.get(username=username)
+            if check_password(password, user.password):
+                return Response({
+                    "message": "Login successful",
+                    "user_id": str(user.id),
+                    "username": user.username
+                })
+            else:
+                return Response({"error": "Invalid password"}, status=status.HTTP_401_UNAUTHORIZED)
+        except Newuser.DoesNotExist:
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+
