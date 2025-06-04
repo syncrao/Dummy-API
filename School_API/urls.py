@@ -18,7 +18,8 @@ from .views import (
     AnnouncementViewSet,
     GadgetViewSet,
     ArtistViewSet,
-    AthleteViewSet
+    AthleteViewSet,
+    NewuserViewSet
 )
 
 router = routers.DefaultRouter()
@@ -40,6 +41,7 @@ router.register(r'announcements', AnnouncementViewSet)
 router.register(r'gadget', GadgetViewSet)
 router.register(r'artist', ArtistViewSet)
 router.register(r'athlete', AthleteViewSet)
+router.register(r'newuser', NewuserViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),  

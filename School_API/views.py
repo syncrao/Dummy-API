@@ -77,3 +77,7 @@ class ArtistViewSet(viewsets.ModelViewSet):
 class AthleteViewSet(viewsets.ModelViewSet):
     queryset = Athlete.objects.all()
     serializer_class = AthleteSerializer
+
+class NewuserViewSet(viewsets.ModelViewSet):
+    queryset = Newuser.objects.all()
+    serializer_class = NewuserSerializer

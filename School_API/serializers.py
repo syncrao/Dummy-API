@@ -99,3 +99,8 @@ class AthleteSerializer(serializers.ModelSerializer):
         model = Athlete
         fields = '__all__'
 
+
+class NewuserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Newuser
+        fields = '__all__'
